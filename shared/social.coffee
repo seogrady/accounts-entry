@@ -6,6 +6,8 @@ Template.entrySocial.helpers
     if @[0] == 'g' && @[1] == 'o'
       true
 
+loginButtonsSession = Accounts._loginButtonsSession
+
 Template.entrySocial.events
   'click .btn': (event)->
     serviceName = $(event.target).attr('id').split('-')[1]
@@ -30,8 +32,6 @@ Template.entrySocial.events
       options.requestOfflineToken = Accounts.ui._options.requestOfflineToken[serviceName]
 
     loginWithService(options, callback)
-
-    Router.go AccountsEntry.settings.dashboardRoute
 
 capitalize = (str) ->
   str.charAt(0).toUpperCase() + str.slice(1)
